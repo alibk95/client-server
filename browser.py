@@ -4,10 +4,10 @@ import socket
 socket_obj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Socket created successfully")
 # indicate the URL and the port to connect the so called phone call
-socket_obj.connect(('maskwith.us', 80))
+socket_obj.connect(('127.0.0.1', 9010))
 # the encode is there cause the data format inside python is in Unicode whereas outside on the internet is
 # UTF-8 so we simply use the encode() method to handle this issue
-command = 'GET https://maskwith.us/ HTTP/1.0\r\n\r\n'.encode()
+command = 'GET http://127.0.0.1 HTTP/1.0\r\n\r\n'.encode()
 socket_obj.send(command)
 while True:
     data = socket_obj.recv(1024)
